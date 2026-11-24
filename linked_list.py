@@ -101,7 +101,7 @@ class LinkedList:
     
     def insert(self, index, value):
         # creates a node and inserts it at the given index
-        if index < 0 or index >= self.length:
+        if index < 0 or index > self.length:
             return False
         if index == 0:
             return self.prepend(value)
@@ -120,7 +120,7 @@ class LinkedList:
             return None
         if index == 0:
             return self.pop_first()
-        if index == self.length:
+        if index == self.length - 1:
             return self.pop()
         pre = self.get(index-1)
         # temp = self.get(index) # costs O(n)
@@ -128,7 +128,7 @@ class LinkedList:
         pre.next = temp.next 
         temp.next = None 
         self.length -= 1
-        return pre 
+        return temp 
 
     def reverse(self):
         # reverses the order of the nodes in the linked list
