@@ -44,9 +44,9 @@ class Stack:
 
 # in lls appending is O(1) and popping from the beginning is O(1)
 # ll: O -> O -> O -> O ->
-# queue: first: O - O - O - O: last
-# enqueue = appending
-# dequeue = pop_first
+# queue: first: O - O - ... - O - O: last
+# enqueue = ll appending
+# dequeue = ll pop_first
 
 class Queue:
     def __init__(self, value):
@@ -63,6 +63,7 @@ class Queue:
             temp = temp.next   
 
     def enqueue(self,value):  
+        # adds a node in the list
         new_node = Node(value)
         if self.first is None:
             self.first = new_node
@@ -74,6 +75,7 @@ class Queue:
         return True 
 
     def dequeue(self):
+        # pops a node from the list
         if self.length == 0:
             return None 
         temp = self.first
